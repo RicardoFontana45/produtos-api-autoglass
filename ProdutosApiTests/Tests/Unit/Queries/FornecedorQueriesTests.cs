@@ -33,7 +33,7 @@ namespace ProdutosApi.Tests.Unit.Queries
                 .Generate(10);
 
             var mockRepository = new Mock<IFornecedorRepository>();
-            mockRepository.Setup(repo => repo.GetAllFornecedores(It.IsAny<int>(), It.IsAny<int>(), null, null, false))
+            mockRepository.Setup(repo => repo.GetAllFornecedores(It.IsAny<int>(), It.IsAny<int>(), null, null, true))
                 .ReturnsAsync(fornecedores);
 
             mockRepository.Setup(repo => repo.GetTotalFornecedoresAsync()).ReturnsAsync(fornecedores.Count);

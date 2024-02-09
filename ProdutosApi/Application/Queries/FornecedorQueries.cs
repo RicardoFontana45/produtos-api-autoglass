@@ -21,7 +21,7 @@ namespace ProdutosApi.Application.Queries
 
         public async Task<PaginationHelper<FornecedorDTO>> GetAllFornecedores(int pagina = 1, int tamanhoPagina = 10, string descricaoFornecedor = null, string CNPJ = null)
         {
-            var fornecedores = await _fornecedorRepository.GetAllFornecedores(pagina, tamanhoPagina, descricaoFornecedor, CNPJ, includeProducts: false);
+            var fornecedores = await _fornecedorRepository.GetAllFornecedores(pagina, tamanhoPagina, descricaoFornecedor, CNPJ, includeProducts: true);
             return new()
             {
                 Items = fornecedores.Select(f => _mapper.Map<Fornecedor, FornecedorDTO>(f)),
